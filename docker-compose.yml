@@ -3,6 +3,7 @@ services:
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vw
+    restart: unless-stopped
     environment: 
       WEBSOCKET_ENABLED: true
       ADMIN_TOKEN: "${ADMIN_TOKEN}"
@@ -12,10 +13,14 @@ services:
   reverse_proxy:
     image: nginx:latest
     container_name: rp
+    restart: unless-stopped
+    environment:
+      HOST_FQDN: "${HOST_FQDN}"
     volumes:
       - .docker/reverse_proxy/default.conf:/etc/nginx/conf.d/default.conf
-      - .docker/pki/cert.pem:/etc/ssl/certs/cert.pem
-      - .docker/pki/cert.key:/etc/ssl/private/cert.key
+      - .docker/reverse_proxy/default.conf.template:/etc/nginx/templates/default.conf.template
+      - .docker/pki/cert.pem:/etc/ssl/certs/cert.pem:ro
+      - .docker/pki/cert.key:/etc/ssl/private/cert.key:ro
 
     ports:
       - 8080:80
