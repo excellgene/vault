@@ -3,6 +3,9 @@ services:
   vaultwarden:
     image: vaultwarden/server:latest
     container_name: vw
+    environment: 
+      WEBSOCKET_ENABLED: true
+      ADMIN_TOKEN: "${ADMIN_TOKEN}"
     volumes:
       - vw-data:/data/
 
