@@ -1,15 +1,4 @@
-# POC Vaultwarden
-
-## Intersting documentation
-
-### enabling HTTPS (big deal)
-
-link to doc here : [Encrypt](https://github.com/dani-garcia/vaultwarden/wiki/Running-a-private-vaultwarden-instance-with-Let%27s-Encrypt-certs)
-
-Implies :
-
-- DynDNS (DuckDNS or Caddy as RProxy)
-- Let's Encrypt
+# excellvault
 
 ## Usage
 
