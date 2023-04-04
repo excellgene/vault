@@ -1,5 +1,7 @@
 # excellvault
 
+[Vaultwarden](https://github.com/dani-garcia/vaultwarden) docker compose instance
+
 ## Usage
 
 ### Configuration
